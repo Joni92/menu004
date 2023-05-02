@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+body {
+  background: black;
+  margin: 0;
+  height: 100vh;
+  font-family: "Bebas Neue", cursive;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+ul {
+  overflow: hidden;
+  padding: 0 0 0 0.3em;
+}
+ul li {
+  margin: 0;
+  padding: 0;
+}
+ul li:hover a {
+  font-size: 4.2rem;
+  animation: revealText 3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+ul li:hover a:before {
+  transform: translateX(-30%);
+}
+ul:hover li a {
+  filter: blur(4px);
+  color: rgb(192, 192, 192);
+}
+ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 4rem;
+  transition: font-size 0.5s;
+  position: relative;
+  display: inline-block;
+  filter: blur(0);
+  transition: filter 0.5s;
+}
+ul li a:hover {
+  filter: blur(0);
+  color: white;
+}
+ul li a:before {
+  position: absolute;
+  content: "";
+  bottom: 0.1em;
+  left: 0;
+  height: 1px;
+  border-bottom: 3px solid white;
+  width: 100%;
+  transform: translateX(-107%);
+  transition: transform 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  pointer-events: none;
+}
+ul li a:focus {
+  color: yellow;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 4rem;
+}
+
+@keyframes revealText {
+  0% {
+    transform: translateX(-30%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+}
